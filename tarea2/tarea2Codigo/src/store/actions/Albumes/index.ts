@@ -3,9 +3,9 @@ import {ThunkDispatch} from 'redux-thunk';
 import {ACTUALIZAR_SELECTED_ALBUM, ACTUALIZAR_ALBUMES} from '..';
 import {IAction} from '../../../models/IAction';
 import {IState} from '../../../models/IState';
-import IUser from '../../../models/IAlbumes';
+import IAlbum from '../../../models/IAlbumes';
 
-export const actualizarAlbumes = (payload: IUser[]) => ({
+export const actualizarAlbumes = (payload: IAlbum[]) => ({
   type: ACTUALIZAR_ALBUMES,
   payload,
 });

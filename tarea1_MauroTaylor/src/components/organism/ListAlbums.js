@@ -11,8 +11,6 @@ import {
 import Separator from '../atoms/Separator';
 import axios from 'axios';
 
-
-
 const ListAlbums = () => {
   const [albums, setAlbums] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -57,7 +55,7 @@ const ListAlbums = () => {
                 }}>
                 <Image
                   style={styles.image}
-                  source={{uri: item.photo[0].thumbnailUrl}}
+                  source={{uri: '`item.photo[0].thumbnailUrl`'}}
                 />
                 <Text
                   category="s1"

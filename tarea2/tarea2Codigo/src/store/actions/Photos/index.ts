@@ -6,7 +6,7 @@ import {IState} from '../../../models/IState';
 import IPhoto from '../../../models/IPhotos';
 
 export const actualizarPhotos= (payload: IPhoto[]): IAction => {
-  console.log(payload);
+  //console.log(payload);
   return {
     type: ACTUALIZAR_PHOTOS,
     payload,

@@ -19,7 +19,7 @@ const AlbumListItem: FC<AlbumListItemProps> = ({album, index}) => {
   return (
     <ItemContainer onPress={onPress}>
       <Text>
-        {++index}. {album.title}
+        {album.id}. {album.title}
       </Text>
     </ItemContainer>
   );

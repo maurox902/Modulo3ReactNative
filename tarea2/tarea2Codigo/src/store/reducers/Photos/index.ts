@@ -1,6 +1,6 @@
 import {IAction} from '../../../models/IAction';
 import IPhoto from '../../../models/IPhotos';
-import {ACTUALIZAR_PHOTOS} from '../../reducers';
+import {ACTUALIZAR_PHOTOS} from '../../actions';
 
 export interface IPhotosReducerState {
   photos: IPhoto[];

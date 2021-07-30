@@ -15,11 +15,9 @@ const AlbumDetails: React.FC = () => {
     const albumes = useSelector((state: IState) => state.Albumes.albumes);
     const {title, id} = albumes[selectedAlbum || 0];
     const photos = useSelector((state: IState) => state.Photos.photos);
-    const filteredPhotos = useMemo(
-      () => photos.filter(photo => photo.id === id),
-      [photos, id],
-    );
-  
+    const filteredPhoto = photos.filter(photo => photo.id === id);
+    const imageurl = filteredPhoto[0].thumbnailUrl;
+   
     const onBackPress = () => {
       dispatch(actualizarSelectedAlbum(null));
     };
@@ -27,31 +25,18 @@ const AlbumDetails: React.FC = () => {
     useEffect(() => {
       dispatch(fetchPhotos());
     }, []);
-  
     return (
-      <Container>
+      <CustomContainer>
         <CustomText>{title}</CustomText>
-        <Image
-          style={styles.image}
-          source={{uri: 'https://via.placeholder.com/600/92c952'}}
+        <CustomImage
+          source={{uri: imageurl}}
         />
-  
-        {filteredPhotos && (
-          <PhotoList
-            data={filteredPhotos}
-            renderItem={({item}) => <PhotoListItem todo={item as IPhoto} />}
-          />
-        )}
         <Button title="Back" onPress={onBackPress} />
-      </Container>
+      </CustomContainer>
     );
   };
   
-  const Container = styled.View`
-    padding: 16px;
-    height: 100%;
-  `;
-  
+
   const CustomText = styled.Text`
     font-size: 18px;
   `;
@@ -60,12 +45,16 @@ const AlbumDetails: React.FC = () => {
     padding: 8px;
   `;
   
-  const styles = StyleSheet.create({
-    image: {
-      width: 50,
-      height: 50,
-    },
-  });
+
+  const CustomContainer = styled.SafeAreaView`
+  align-items: center;
+  justify-content: center;
+`;
+
+const CustomImage = styled.Image`
+  width: 70%;
+  height: 60%;
+`;
   
   export default AlbumDetails;
   

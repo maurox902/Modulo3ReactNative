@@ -14,14 +14,13 @@ const AlbumList: React.FC = () => {
   useEffect(() => {
     dispatch(fetchAlbumes());
   }, []);
-
   return (
     <View>
       {albumes.length > 0 ? (
         <FlatList
           data={albumes}
           renderItem={({item, index}) => (
-            <AlbumListItem key={item.id} album={item} index={index} />
+            <AlbumListItem key={index} album={item} index={index} />
           )}
         />
       ) : (
