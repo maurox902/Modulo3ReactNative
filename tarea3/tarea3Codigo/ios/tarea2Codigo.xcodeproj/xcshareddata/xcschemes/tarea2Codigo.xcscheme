@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "tarea2Codigo.app"
-               BlueprintName = "tarea2Codigo"
-               ReferencedContainer = "container:tarea2Codigo.xcodeproj">
+               BuildableName = "tarea3Codigo.app"
+               BlueprintName = "tarea3Codigo"
+               ReferencedContainer = "container:tarea3Codigo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "tarea2CodigoTests.xctest"
-               BlueprintName = "tarea2CodigoTests"
-               ReferencedContainer = "container:tarea2Codigo.xcodeproj">
+               BuildableName = "tarea3CodigoTests.xctest"
+               BlueprintName = "tarea3CodigoTests"
+               ReferencedContainer = "container:tarea3Codigo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "tarea2Codigo.app"
-            BlueprintName = "tarea2Codigo"
-            ReferencedContainer = "container:tarea2Codigo.xcodeproj">
+            BuildableName = "tarea3Codigo.app"
+            BlueprintName = "tarea3Codigo"
+            ReferencedContainer = "container:tarea3Codigo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "tarea2Codigo.app"
-            BlueprintName = "tarea2Codigo"
-            ReferencedContainer = "container:tarea2Codigo.xcodeproj">
+            BuildableName = "tarea3Codigo.app"
+            BlueprintName = "tarea3Codigo"
+            ReferencedContainer = "container:tarea3Codigo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,61 +1,33 @@
 import styled from '@emotion/native';
-import React, {useEffect, useMemo} from 'react';
-import {Button, Image, StyleSheet} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {IState} from '../../../models/IState';
+import React, {FC} from 'react';
+import {Text} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 import IPhoto from '../../../models/IPhotos';
-import {fetchPhotos} from '../../../store/actions/Photos';
-import {actualizarSelectedAlbum} from '../../../store/actions/Albumes';
-import PhotoListItem from '../PhotoListItem';
-import {useAlbumes} from '../../../contexts/albumes-context';
 
-const AlbumDetails: React.FC = () => {
-    const dispatch = useDispatch();
-  
-    const selectedAlbum = useSelector((state: IState) => state.Albumes.selectedAlbum);
-    console.log(selectedAlbum)
-    const {albumes, setselectedAlbum} = useAlbumes();
-    const {title, id} = albumes[selectedAlbum || 0];
-    const photos = useSelector((state: IState) => state.Photos.photos);
-    const filteredPhoto = photos.filter(photo => photo.id === id);
-    const imageurl = filteredPhoto[0].thumbnailUrl;
-    
-    const onBackPress = () => {
-      setselectedAlbum(null);
-    };
-  
-    useEffect(() => {
-      dispatch(fetchPhotos());
-    }, []);
-    return (
-      <CustomContainer>
-        <CustomText>{title}</CustomText>
-        <CustomImage
-          source={{uri: imageurl}}
-        />
-        <Button title="Back" onPress={onBackPress} />
-      </CustomContainer>
-    );
-  };
+export interface AlbumDetailItemProps {
+  titulo: string;
+  index: number;
+}
 
-  const CustomText = styled.Text`
-    font-size: 18px;
-  `;
-  
-  const PhotoList = styled.FlatList`
-    padding: 8px;
-  `;
-  
+const AlbumDetail: FC<AlbumDetailItemProps> = ({titulo, index }) => {
+ 
 
-  const CustomContainer = styled.SafeAreaView`
-  align-items: center;
-  justify-content: center;
+  return (
+    <ItemContainer onPress={() =>
+      Actions.detail({
+        titulo: `${titulo}`,
+        id: `${index}`,
+      })
+    }>
+    </ItemContainer>
+  );
+};
+
+const ItemContainer = styled.TouchableOpacity`
+  background-color: #f1f1f1;
+  border-radius: 32px;
+  padding: 8px 12px;
+  margin: 4px 0;
 `;
 
-const CustomImage = styled.Image`
-  width: 70%;
-  height: 60%;
-`;
-  
-  export default AlbumDetails;
-  
+export default AlbumDetail;

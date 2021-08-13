@@ -1,30 +1,25 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-
-import {Provider} from 'react-redux';
-import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import HomeScreen from './src/components/screens/HomeScreen';
-import * as reducers from './src/store/reducers';
-import thunk from 'redux-thunk';
-import {PhotosProvider} from './src/contexts/photos-context';
-import {AlbumesProvider} from './src/contexts/albumes-context';
-
-const store = createStore(
-  combineReducers(reducers),
-  applyMiddleware(compose(thunk)),
-);
+import DetailScreen from './src/components/screens/DetailScreen';
+import {Scene, Router} from 'react-native-router-flux';
 
 const App = () => {
   return (
-    <Provider store={store}>
-       <PhotosProvider>
-        <AlbumesProvider>
-          <SafeAreaView>
-            <HomeScreen />
-          </SafeAreaView>
-        </AlbumesProvider>
-      </PhotosProvider>
-    </Provider>
+    <Router>
+    <Scene key="root">
+      <Scene
+        key="home"
+        component={HomeScreen}
+        title="Lista de Albumnes"
+        initial={true}
+      />
+      <Scene
+        key="detail"
+        component={DetailScreen}
+        title="Detalle de Album"
+      />
+    </Scene>
+  </Router>
   );
 };
 

@@ -1,24 +1,24 @@
 import styled from '@emotion/native';
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {Text} from 'react-native';
-import {useDispatch} from 'react-redux';
 import IAlbum from '../../../models/IAlbumes';
-import {actualizarSelectedAlbum} from '../../../store/actions/Albumes';
-import {useAlbumes} from '../../../contexts/albumes-context';
+import {Actions} from 'react-native-router-flux';
 
 export interface AlbumListItemProps {
   album: IAlbum;
   index: number;
 }
 
-const AlbumListItem: FC<AlbumListItemProps> = ({album, index}) => {
-  const {setselectedAlbum} = useAlbumes();
-  const onPress = () => {
-    setselectedAlbum(index);
-  };
+const AlbumListItem: FC<AlbumListItemProps> = ({album, index }) => {
+ 
 
   return (
-    <ItemContainer onPress={onPress}>
+    <ItemContainer onPress={() =>
+      Actions.detail({
+        titulo: `${album.title}`,
+        id: `${album.id}`,
+      })
+    }>
       <Text>
         {album.id}. {album.title}
       </Text>
